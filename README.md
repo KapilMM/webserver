@@ -38,22 +38,22 @@ This project demonstrates how to set up a web hosting environment on AWS using a
   sudo systemctl enable httpd
 
 Configure FTP Server- Install vsftpd:
-
+```bash
   sudo yum install vsftpd -y
-
-- Configure vsftpd according to security requirements.
+````
+Configure vsftpd according to security requirements.
 - Restart vsftpd:
-
-sudo systemctl restart vsftpd
-
+```bash
+   sudo systemctl restart vsftpd
+```
 Associate External Domain- In your domain registrar's dashboard, create an "A" record pointing to the EC2 instance's public IP address.
 Obtain SSL Certificate- Generate a free SSL certificate using Let's Encrypt or similar service.
 - Configure Apache to use the SSL certificate:
 
 # Install certbot
-sudo yum install certbot python3-certbot-apache -y
+```bash sudo yum install certbot python3-certbot-apache -y```
 # Obtain and install SSL certificate
-sudo certbot --apache
+```sudo certbot --apache```
 
 Usage Access Website- Enter your domain name in a web browser to access the website hosted on the EC2 instance.
 
