@@ -1,4 +1,4 @@
-# AWS Web Hosting with Linux Web Server, FTP, Free Domain with SSL
+# AWS Web Hosting with Linux Web Server, FTP include Free Domain with SSL
 
 ## Description
 This project demonstrates how to set up a web hosting environment on AWS using a Linux-based web server. It includes configurations for hosting a website, enabling FTP access, associating an external domain, and securing the website with SSL/TLS encryption.
