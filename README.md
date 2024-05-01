@@ -39,7 +39,7 @@ This project demonstrates how to set up a web hosting environment on AWS using a
 
 Configure FTP Server- Install vsftpd:
 
-sudo yum install vsftpd -y
+  sudo yum install vsftpd -y
 
 - Configure vsftpd according to security requirements.
 - Restart vsftpd:
