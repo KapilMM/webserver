@@ -1,7 +1,7 @@
 # AWS Linux Web Hosting with External Free Domain, FTP, and SSL
 
 ## Description
-Set up a robust web hosting environment on AWS with this comprehensive guide. Utilize a Linux web server, enable FTP access, connect an external domain, and secure your site with SSL/TLS encryption.
+This guide provides step-by-step instructions for setting up a robust web hosting environment on AWS. By following these steps, you'll be able to deploy a Linux web server, enable FTP access, connect an external domain, and secure your site with SSL/TLS encryption.
 
 ## Table of Contents
 1. Features
@@ -12,47 +12,68 @@ Set up a robust web hosting environment on AWS with this comprehensive guide. Ut
 6. License
 
 ## Features
-- **Linux Web Server**: Deploy on an Amazon EC2 instance with a Linux OS.
-- **FTP Access**: Secure file transfer with vsftpd.
+- **Linux Web Server**: Deploy your website on an Amazon EC2 instance with a Linux operating system.
+- **FTP Access**: Securely transfer files using vsftpd.
 - **External Domain**: Link your own domain to the AWS instance.
 - **SSL/TLS Encryption**: Protect your site with a free SSL certificate.
 
 ## Prerequisites
-- AWS account and EC2 access.
-- Linux CLI knowledge.
-- Domain name and DNS access.
-- FTP client (e.g., FileZilla).
+Before you begin, ensure you have the following:
+
+- An AWS account with EC2 access.
+- Basic knowledge of the Linux command line interface (CLI).
+- A registered domain name and access to DNS settings.
+- An FTP client (e.g., FileZilla).
 
 ## Installation
-### Launch EC2 Instance
-- Start an EC2 instance with a Linux AMI.
-- Set security groups for SSH (22), HTTP (80), HTTPS (443).
+Follow these steps to set up your web hosting environment:
 
-### Install Web Server
+### 1. Launch an EC2 Instance
+- Start an EC2 instance using a Linux AMI.
+- Configure security groups to allow SSH (port 22), HTTP (port 80), and HTTPS (port 443) traffic.
+
+### 2. Install the Web Server (Apache)
 - SSH into your EC2 instance.
-- Update and install Apache:
+- Update the system and install Apache:
   ```bash
   sudo yum update -y
   sudo yum install httpd -y
   sudo systemctl start httpd
   sudo systemctl enable httpd
+  ```
 
-Configure FTP Server- Install and configure vsftpd for secure transfers:
+### 3. Configure the FTP Server (vsftpd)
+- Install and configure vsftpd for secure file transfers:
+  ```bash
+  sudo yum install vsftpd -y
+  sudo systemctl restart vsftpd
+  ```
 
-sudo yum install vsftpd -y
-sudo systemctl restart vsftpd
+### 4. Get a Free Domain
+- Register at InfinityFree and claim a free domain.
 
-Get a Free Domain- Register at InfinityFree and claim a free domain.
-Associate Domain with AWS- Update DNS "A" record to EC2's IP at your domain registrar.
-Obtain SSL Certificate- Install certbot and run it to set up SSL:
+### 5. Associate Your External Domain
+- Log in to your domain registrar's dashboard.
+- Navigate to the DNS management or settings page.
+- Create an A record with the public IP address of your EC2 instance.
+- Save the changes to point your domain to your AWS-hosted website.
 
-sudo yum install certbot python3-certbot-apache -y
-sudo certbot --apache
+### 6. Obtain an SSL Certificate
+- Install certbot and set up SSL:
+  ```bash
+  sudo yum install certbot python3-certbot-apache -y
+  sudo certbot --apache
+  ```
 
-UsageAccess Website- Visit your domain to see your AWS-hosted site.
-FTP Access- Connect via FTP using your EC2's IP, username, and password.
-Contributing- Contributions are encouraged. See CONTRIBUTING.md for guidelines.
-License- MIT License. Refer to LICENSE for details.
+## Usage
+- Access your website by visiting your domain.
+- Connect via FTP using your EC2 instance's IP, username, and password.
+
+## Contributing
+Contributions are encouraged! Refer to CONTRIBUTING.md for guidelines.
+
+## License
+This project is licensed under the MIT License. See LICENSE for details.
 
 
 
