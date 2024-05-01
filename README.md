@@ -1,67 +1,61 @@
 # AWS Linux Web Hosting with External Free Domain, FTP, and SSL
 
 ## Description
-This project demonstrates how to set up a web hosting environment on AWS using a Linux-based web server. It includes configurations for hosting a website, enabling FTP access, associating an external domain, and securing the website with SSL/TLS encryption.
+Set up a robust web hosting environment on AWS with this comprehensive guide. Utilize a Linux web server, enable FTP access, connect an external domain, and secure your site with SSL/TLS encryption.
 
 ## Table of Contents
-- Features
-- Prerequisites
-- Installation
-- Usage
-- Contributing
-- License
+1. Features
+2. Prerequisites
+3. Installation
+4. Usage
+5. Contributing
+6. License
 
 ## Features
-- **Linux Web Server**: Utilizes an Amazon EC2 instance running a Linux distribution as the web server.
-- **FTP Access**: Configures vsftpd (Very Secure FTP Daemon) for secure FTP access to the server.
-- **External Domain**: Guides the setup of DNS records to associate an external domain with the EC2 instance.
-- **SSL/TLS Encryption**: Implements SSL/TLS encryption using a free SSL certificate for secure HTTPS connections.
+- **Linux Web Server**: Deploy on an Amazon EC2 instance with a Linux OS.
+- **FTP Access**: Secure file transfer with vsftpd.
+- **External Domain**: Link your own domain to the AWS instance.
+- **SSL/TLS Encryption**: Protect your site with a free SSL certificate.
 
 ## Prerequisites
-- An AWS account with access to the EC2 service.
-- Basic knowledge of Linux command-line interface.
-- A registered domain name with access to DNS management settings.
-- An FTP client for accessing the server (e.g., FileZilla).
+- AWS account and EC2 access.
+- Linux CLI knowledge.
+- Domain name and DNS access.
+- FTP client (e.g., FileZilla).
 
 ## Installation
 ### Launch EC2 Instance
-- Launch an Amazon EC2 instance with a Linux-based AMI (Amazon Machine Image).
-- Configure security groups to allow inbound traffic on ports 22 (SSH), 80 (HTTP), and 443 (HTTPS).
+- Start an EC2 instance with a Linux AMI.
+- Set security groups for SSH (22), HTTP (80), HTTPS (443).
 
 ### Install Web Server
-- Connect to the EC2 instance via SSH.
-- Install Apache HTTP Server:
+- SSH into your EC2 instance.
+- Update and install Apache:
   ```bash
   sudo yum update -y
   sudo yum install httpd -y
   sudo systemctl start httpd
   sudo systemctl enable httpd
 
-Configure FTP Server- Install vsftpd:
-```bash
-  sudo yum install vsftpd -y
-````
-Configure vsftpd according to security requirements.
-- Restart vsftpd:
-```bash
-   sudo systemctl restart vsftpd
-```
-Associate External Domain- In your domain registrar's dashboard, create an "A" record pointing to the EC2 instance's public IP address.
-Obtain SSL Certificate- Generate a free SSL certificate using Let's Encrypt or similar service.
-- Configure Apache to use the SSL certificate:
+Configure FTP Server- Install and configure vsftpd for secure transfers:
 
-# Install certbot
-```bash sudo yum install certbot python3-certbot-apache -y```
-# Obtain and install SSL certificate
-```sudo certbot --apache```
+sudo yum install vsftpd -y
+sudo systemctl restart vsftpd
 
-Usage Access Website- Enter your domain name in a web browser to access the website hosted on the EC2 instance.
+Get a Free Domain- Register at InfinityFree and claim a free domain.
+Associate Domain with AWS- Update DNS "A" record to EC2's IP at your domain registrar.
+Obtain SSL Certificate- Install certbot and run it to set up SSL:
 
-FTP Access- Use an FTP client to connect to the server using the instance's public IP address, username, and password.
+sudo yum install certbot python3-certbot-apache -y
+sudo certbot --apache
 
-ContributingContributions are welcome! 
-Please follow the guidelines outlined in CONTRIBUTING.md.
-LicenseThis project is licensed under the MIT License. See the LICENSE file for more details.
+UsageAccess Website- Visit your domain to see your AWS-hosted site.
+FTP Access- Connect via FTP using your EC2's IP, username, and password.
+Contributing- Contributions are encouraged. See CONTRIBUTING.md for guidelines.
+License- MIT License. Refer to LICENSE for details.
+
+
+
 
 
 
