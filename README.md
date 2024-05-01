@@ -56,6 +56,7 @@ sudo yum install certbot python3-certbot-apache -y
 sudo certbot --apache
 
 Usage Access Website- Enter your domain name in a web browser to access the website hosted on the EC2 instance.
+
 FTP Access- Use an FTP client to connect to the server using the instance's public IP address, username, and password.
 
 ContributingContributions are welcome! 
